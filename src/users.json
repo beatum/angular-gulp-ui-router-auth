@@ -1,0 +1,88 @@
+{
+   "data": [
+      {
+         "id": "1",
+         "name": "Mr. Red",
+         "color": "Red",
+         "issue_date": "2010-08-02T21:27:44+0000",
+         "price": 7,
+         "rating": 5,
+         "instock": true,
+         "image": "assets/images/angular.png",
+         "email": "mr@red.co",
+         "password1": "1",
+         "password2": "1",
+         "join_date": "2011-08-02T21:27:44+0000"
+      },
+      {
+         "id": "2",
+         "name": "Mr. White",
+         "color": "Red",
+         "issue_date": "2012-08-02T21:27:44+0000",
+         "price": 4,
+         "rating": 5,
+         "instock": false,
+         "image": "assets/images/yeoman.png",
+         "email": "mr@white.co",
+         "password1": "2",
+         "password2": "2",
+         "join_date": "2010-08-02T21:27:44+0000"
+      },
+      {
+         "id": "3",
+         "name": "Mr. Black",
+         "color": "Black",
+         "issue_date": "2014-08-02T21:27:44+0000",
+         "price": 5,
+         "rating": 5,
+         "instock": true,
+         "image": "assets/images/karma.png",
+         "email": "mr@black.co",
+         "password1": "1",
+         "password2": "1",
+         "join_date": "2010-08-02T21:27:44+0000"
+      },
+      {
+         "id": "4",
+         "name": "Mr. Blue",
+         "color": "Blue",
+         "issue_date": "2015-08-02T21:27:44+0000",
+         "price": 1,
+         "rating": 3,
+         "instock": false,
+         "image": "assets/images/bootstrap.png",
+         "email": "mr@blue.co",
+         "password1": "2",
+         "password2": "2",
+         "join_date": "2016-08-02T21:27:44+0000"
+      },
+      {
+         "id": "5",
+         "name": "Mr. Yellow",
+         "color": "Yellow",
+         "issue_date": "2015-08-02T21:27:44+0000",
+         "price": 10,
+         "rating": 4,
+         "instock": false,
+         "image": "assets/images/protractor.png",
+         "email": "mr@yellow.co",
+         "password1": "2",
+         "password2": "2",
+         "join_date": "2016-08-02T21:27:44+0000"
+      },
+      {
+         "id": "6",
+         "name": "Mr. Green",
+         "color": "Blue",
+         "issue_date": "2015-08-02T21:27:44+0000",
+         "price": 12,
+         "rating": 5,
+         "instock": false,
+         "image": "assets/images/ui-bootstrap.png",
+         "email": "mr@yellow.co",
+         "password1": "2",
+         "password2": "2",
+         "join_date": "2017-08-02T21:27:44+0000"
+      }
+   ]
+}

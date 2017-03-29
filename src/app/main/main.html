@@ -1,0 +1,141 @@
+<div class="container">
+  
+  <div>
+    <acme-navbar></acme-navbar>
+  </div>
+  <div class="row">
+    <div class="col-xs-11 col-sm-10 col-md-offset-1 col-md-10">
+      <form class="form form-inline" action="" method="post" role="form">
+        <legend>Search Filter</legend>
+        <div class="row">
+          <div class="col-md-3">
+            <label>From date</label>
+            <div class="input-group">
+              <input type="text" class="form-control"
+                uib-datepicker-popup
+                ng-model="startDate"
+                is-open="popup1.opened"
+                datepicker-options="dateOptions"
+                ng-required="false"
+                close-text="Close"/>
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <label>To date</label>
+            <div class="input-group">
+              <input type="text" class="form-control"
+                uib-datepicker-popup
+                ng-model="endDate"
+                is-open="popup1.opened"
+                datepicker-options="dateOptions"
+                ng-required="false"
+                close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+            </div>
+          </div>
+          <div class="col-md-3 col-md-offset-3">
+            <div class="checkbox" style="padding-top: 30px;">
+              <label>
+                <input ng-model="instock" ng-false-value='undefined' type="checkbox" style="top: 2px; position: relative; display: inline;">
+                In stock only
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="padding-top: 30px;">
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="price_from">Price from</label>
+              <input type="number" ng-model="min_price" class="form-control" id="price_from" placeholder="00.00">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="price_to">Price to</label>
+              <input type="number" ng-model="max_price" class="form-control" id="price_to" placeholder="00.00">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="price_to">Color select</label>
+              <select ng-model="color" class="form-control" style="width: 100%">
+                <option value="">-- Select Color --</option>
+                <option value="Red">Red</option>
+                <option value="White">White</option>
+                <option value="Black">Black</option>
+                <option value="Blue">Blue</option>
+                <option value="Yellow">Yellow</option>
+                <option value="Green">Green</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row" style="padding-top: 30px;">
+    <div class="col-xs-11 col-sm-10 col-md-offset-1 col-md-10">
+      <legend>Cart List</legend>
+    <div>
+  </div>
+
+  <div class="cart-list">
+    <div class="row" ng-repeat="item in users|filter:color|filter:instock|filter:byRange('price', min_price, max_price)" style="padding-top: 30px;">
+      <div class="col-md-12">
+        <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-3"><img ng-src="{{item.image}}" alt="Picture"></div>
+            <div class="col-md-9">
+              <div class="row">
+                <div class="col-md-4">Name: {{item.name}}</div>
+                <div class="col-md-4">{{item.issue_date|date:'yyyy-MM-dd'}}</div>
+                <div class="col-md-4">Price: {{item.price|number:2}}</div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">Color: {{item.color}}</div>
+                <div class="col-md-4">In stock: {{item.instock}}</div>
+                <div class="col-md-4">Stars: {{item.rating}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+    </div>
+  </div>
+  
+  
+  <!--
+  <div class="jumbotron text-center">
+    <h1>Тестовое задание</h1>
+    <p class="lead">
+      Always a pleasure scaffolding your apps.
+    </p>
+    <p class="animated infinite" ng-class="main.classAnimation">
+      <button type="button" class="btn btn-lg btn-success" ng-click="main.showToastr()">Splendid Toastr</button>
+    </p>
+    <p>
+      With ♥ thanks to the contributions of<acme-malarkey extra-values="['Yeoman', 'Gulp', 'Angular']"></acme-malarkey>
+    </p>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-6 col-md-4" ng-repeat="awesomeThing in main.awesomeThings | orderBy:'rank'">
+      <div class="thumbnail">
+        <img class="pull-right" ng-src="assets/images/{{ awesomeThing.logo }}" alt="{{ awesomeThing.title }}">
+        <div class="caption">
+          <h3>{{ awesomeThing.title }}</h3>
+          <p>{{ awesomeThing.description }}</p>
+          <p><a ng-href="{{awesomeThing.url}}">{{ awesomeThing.url }}</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->
+</div>

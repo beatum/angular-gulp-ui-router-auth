@@ -1,0 +1,14 @@
+.signup-form {
+  margin: 0 auto;
+}
+.signup-form {
+   transition:all linear 0.5s;
+   background: transparent;
+ }
+ /**/
+/*.signup-form.ng-invalid {*/
+   /*background: red;*/
+ /*}*/
+/*.signup-form.ng-valid {*/
+   /*background: green;*/
+ /*}*/

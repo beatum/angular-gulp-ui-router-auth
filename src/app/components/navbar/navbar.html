@@ -1,0 +1,15 @@
+<nav class="navbar navbar-static-top">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
+      <ul class="nav navbar-nav">
+        <li ng-if="is_auth"><a ui-sref="home" ng-href="#">Home</a></li>
+        <li ng-if="is_auth"><a ng-click="logOut()" ng-href="#/signup">Logout and Clear Storage</a></li>
+        <li ng-if="!is_auth"><a ui-sref="signup" ng-href="#/signup">Sign up</a></li>
+        <li ng-if="!is_auth"><a ui-sref="login" ng-href="#/login">Login</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right acme-navbar-text">
+        <li><a ng-href="#">Cart: 3 Items</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

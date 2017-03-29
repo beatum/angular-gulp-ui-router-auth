@@ -1,0 +1,12 @@
+/*Main style*/
+
+body {
+  overflow-y: scroll;
+}
+
+* {
+  outline: none;
+}
+.signup-form {
+  margin: auto 0;
+}
