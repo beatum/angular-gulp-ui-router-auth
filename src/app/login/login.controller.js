@@ -10,9 +10,10 @@
     var vm = this;
     var data = [];
     var is_auth = '';
+    $scope.errors = false;
 
 
-    $scope.regex = /^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/;
+    $scope.regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
     $scope.logIn = function () {
       var password_bitArray = sjcl.hash.sha256.hash($scope.password);
@@ -21,12 +22,19 @@
       if ('data' in $window.localStorage) {
         data = JSON.parse($window.localStorage.getItem('data'));
         if(data['password'] === password_digest_sha256 && data['email'] === $scope.email) {
+
           data['is_auth'] = true;
+
           $window.localStorage.setItem('data', JSON.stringify(data));
+
           $log.info('You are successfully login');
+
+          alert('You are successfully login');
+
           $state.go('home');
+
         } else {
-          $scope.errors = 'User with this credentials is not exist! Or password or email wrong! Try again or signup please!'
+          $scope.errors = true;
         };
       } else {
         $state.go('signup');

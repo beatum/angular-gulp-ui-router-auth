@@ -7,6 +7,7 @@
       <form class="signup-form" name="loginForm" ng-submit="logIn()" method="post">
         <legend>Login</legend>
 
+        <div ng-if="errors">User with this credentials is not exist! Or password or email wrong! Try again or signup please!</div>
         <div ng-if="loginForm.$submitted || loginForm.email.$touched">
           <div ng-if="loginForm.email.$error.required">Email is required.</div>
           <div ng-if="loginForm.email.$error.email || loginForm.email.$error.pattern">Enter a valid email.</div>

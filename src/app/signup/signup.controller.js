@@ -12,7 +12,7 @@
     // https://glynrob.com/javascript/client-side-hashing-and-encryption/
 
 
-    $scope.regex = /^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/;
+    $scope.regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
     $scope.signUp = function(){
 

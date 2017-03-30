@@ -67,7 +67,7 @@
               };
 
               if (toState.name === "home") {
-                $log.info('User is not auth, go to signup page');
+                $log.info('User is not auth, go to signup page with else');
                 event.preventDefault();
                 $state.go('signup');
                 // return;
