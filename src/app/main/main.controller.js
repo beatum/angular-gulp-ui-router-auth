@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($scope, $log, Auth) {
+  function MainController($scope, $log, Auth, $filter) {
 
 
     Auth.users().then(function(response){
@@ -18,39 +18,52 @@
 
 
     $scope.byRange = function (fieldName, minValue, maxValue) {
-        if (minValue === undefined || maxValue === undefined || maxValue === null || minValue === null) {
-            return function predicateFunctionTwo(item) {
-                return item[fieldName];
+        if (minValue === undefined || maxValue === undefined) {
+            return function preFunc1(item) {
+              return item[fieldName];
             }
         } else {
-            return function predicateFunc(item) {
-            return minValue <= item[fieldName] && item[fieldName] <= maxValue;
-          };
+            return function preFunc2(item) {
+              if (!minValue || !maxValue) {
+                return item[fieldName];
+              } else {
+                return item[fieldName] >= minValue && item[fieldName] <= maxValue;
+              }
+          }
       }
     };
 
-    // $scope.byDate = function (property, startDate, endDate) {
-    //     // refactor this
-    //     return function (item) {
-    //         if (item[property] === null) return false;
-    //
-    //         var itemDate = moment(item[property]);
-    //         var s = moment(startDate, "DD-MM-YYYY");
-    //         var e = moment(endDate, "DD-MM-YYYY");
-    //
-    //         if (itemDate <= s && itemDate <= e) return true;
-    //         return false;
-    //     }
-    // };
 
+    $scope.dateRangeFilter = function (property, startDate, endDate) {
+        if(startDate === null || endDate === null){
+          return function preFunc1 (item) {
+            return item[property]
+          }
+        } else {
+          return function preFunc2 (item) {
 
-  $scope.startDate = new Date(2010, 1, 1);
-  $scope.endDate = new Date(2020, 5, 22);
+            var itemDate = moment(item[property]);
+            var s = moment(startDate, "DD-MM-YYYY");
+            var e = moment(endDate, "DD-MM-YYYY");
+
+            if (s === null || e === null) {
+              return item[property]
+            } else {
+              return (itemDate >= s && itemDate <= e);
+            }
+
+          }
+        }
+    };
+
+  $scope.startDate = new Date(2014, 1 , 1);
+  $scope.endDate = new Date(2021, 4, 2);
+
 
   $scope.dateOptions = {
     formatYear: 'yyyy',
-    maxDate: new Date(2020, 5, 22),
-    minDate: new Date(),
+    minDate: new Date(2014, 1 , 1),
+    maxDate: new Date(2021, 4, 2),
     startingDay: 1
   };
 
@@ -70,7 +83,5 @@
     opened: false
   };
 
-
-  // --end--
   }
 })();
